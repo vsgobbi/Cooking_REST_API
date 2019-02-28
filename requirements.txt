@@ -1,0 +1,6 @@
+Django==2.1.7
+django-extensions==2.1.4
+djangorestframework==3.9.1
+drf-writable-nested==0.5.1
+pytz==2018.9
+six==1.12.0
