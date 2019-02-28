@@ -16,8 +16,6 @@ urlpatterns = [
     path('cooker/id/<int:pk>', CookerCRUD.as_view(), name='cooker'),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    #path(r'cooker/id/<int:pk>', CookerCRUD.as_view(), name='cooker'),
-    #url(r'^api/', include('rest_framework.urls', 'rest_framework')),
 ]
 urlpatterns += router.urls
 

@@ -2,8 +2,6 @@ from django.db.models.fields.related import ManyToManyField, OneToOneField, Fore
 from rest_framework import serializers
 from .models import Ingredient, Recipe, Cooker
 from drf_writable_nested import WritableNestedModelSerializer
-
-#class IngredientSerializer(serializers.HyperlinkedModelSerializer):
 from rest_framework.relations import PrimaryKeyRelatedField
 
 
@@ -21,7 +19,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = ('url', 'id', 'ingredients', 'name', 'directions', 'description')
-        #fields = '__all__'
+
 
     def create(self, validated_data):
         ingredients_data = validated_data.pop('ingredients')
@@ -46,15 +44,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
 class CookerSerializer(WritableNestedModelSerializer):
     recipes = RecipeSerializer(many=True)
-    #recipes = PrimaryKeyRelatedField(queryset=Recipe.objects.all())
-    #recipes = ManyToManyField(Recipe)
-
-    #ingredients = PrimaryKeyRelatedField(queryset=Ingredient.objects.all())
     ingredients = IngredientSerializer(many=True, read_only=True)
-
-    #tmp = Cooker.objects.values("name").contains({'key': '3'})
-    #if tmp.count() > 0:
-    #    item_id = tmp[0].id
 
     class Meta:
         model = Cooker
