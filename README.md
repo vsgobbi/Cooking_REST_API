@@ -67,7 +67,7 @@ Adding exist ingredients and recipe and its cooker
     "name" : "John",
     "age" : 25,
     "recipes" : [
-	{'name' : "Sandwich"}
+	{"name" : "Sandwich"}
 	]
 }
 ```
