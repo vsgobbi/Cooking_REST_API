@@ -1,4 +1,4 @@
-#Example of Cooking API using Nested Serializers
+# Example of Cooking API using Nested Serializers
 
 Note: When accessing API routers inside browser panel, if you try opening the form to add information, you will see a message as: **Lists are not currently supported in HTML input**,
 this is normal normal because Django Rest does not support forms for many to many nested serializers, you should use raw data our 'curl' or 'httpie' instead.
